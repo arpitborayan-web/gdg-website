@@ -1,20 +1,187 @@
-# GDG on Campus · Poornima University
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GDG on Campus · Poornima University</title>
+<meta name="description" content="Student-led developer community at Poornima University, Jaipur. Workshops, study jams and hackathons.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#f2f5fb;--ink:#0e1a33;--mut:#4a5675;--line:#cfd6e6;--b:#4285f4;--r:#ea4335;--y:#fbbc04;--g:#34a853;--on:#0e1a33}
+:root[data-theme=dark]{--bg:#0b1226;--ink:#eaf0ff;--mut:#9fb0d6;--line:#26335a}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0b1226;--ink:#eaf0ff;--mut:#9fb0d6;--line:#26335a}}
+body{font:17px/1.6 'Bricolage Grotesque',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+h1,h2,h3{line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(2.7rem,9vw,5.4rem);font-weight:800}
+h2{font-size:clamp(2rem,6vw,3.1rem);font-weight:800;margin-bottom:12px}
+h3{font-size:1.3rem;font-weight:800}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+.wrap{max-width:1040px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:2px solid var(--ink)}
+.bar{display:flex;align-items:center;gap:10px;height:62px}
+.logo{margin-right:auto;display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
+.dots{display:grid;grid-template-columns:10px 10px;gap:3px}
+.dots i{width:10px;height:10px;background:var(--c)}
+.dots i:nth-child(1){border-radius:50%}.dots i:nth-child(2){border-radius:2px}.dots i:nth-child(3){border-radius:100% 0 0 0}.dots i:nth-child(4){border-radius:0 100% 0 100%}
+nav{display:flex;gap:2px}
+nav a{padding:7px 14px;border-radius:99px;text-decoration:none;font-weight:500}
+nav a.on{background:var(--ink);color:var(--bg)}
+button{font:inherit;color:inherit;cursor:pointer}
+.ib{border:2px solid var(--ink);background:none;border-radius:50%;width:40px;height:40px}
+#bg{display:none}
+@media(max-width:780px){#bg{display:block}nav{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;padding:10px 20px 16px;background:var(--bg);border-bottom:2px solid var(--ink)}nav.open{display:flex}}
+.page{padding:52px 0 80px}
+.lead{font-size:1.2rem;color:var(--mut);max-width:56ch;margin:18px 0 28px}
+.btn{display:inline-block;padding:13px 24px;border-radius:99px;border:2px solid var(--ink);font-weight:800;text-decoration:none;color:var(--on);background:var(--y);margin:0 8px 10px 0}
+.btn.o{background:none;color:var(--ink)}
+.b{--c:var(--b)}.r{--c:var(--r)}.y{--c:var(--y)}.g{--c:var(--g)}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center}
+@media(max-width:780px){.hero{grid-template-columns:1fr}}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(320px,100%);aspect-ratio:1;cursor:pointer;border:0;background:none;padding:0}
+.stage span{background:var(--c);border:2px solid var(--ink);transition:background .35s;animation:pop .7s both cubic-bezier(.3,1.6,.5,1);animation-delay:calc(var(--i)*.14s)}
+.stage span:nth-child(1){border-radius:50%}.stage span:nth-child(2){border-radius:16px}.stage span:nth-child(3){border-radius:100% 0 0 0}.stage span:nth-child(4){border-radius:0 100% 0 100%}
+@keyframes pop{from{transform:translateY(-50px) scale(.3);opacity:0}}
+.hint{font-size:.9rem;color:var(--mut);margin-top:8px}
+.bands{margin-top:64px}
+.band{display:grid;grid-template-columns:1fr 2fr;gap:6px 28px;padding:24px;background:var(--c);color:var(--on);border:2px solid var(--ink)}
+.band+.band{border-top:0}
+.band:first-child{border-radius:28px 28px 0 0}.band:last-child{border-radius:0 0 28px 28px}
+@media(max-width:640px){.band{grid-template-columns:1fr}}
+.cta{margin-top:64px;padding:36px 28px;border:2px solid var(--ink);border-radius:28px 0 28px 0;background:var(--c);color:var(--on)}
+.cta h2{margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:28px}
+.blk{background:var(--c);color:var(--on);border:2px solid var(--ink);padding:22px}
+.blk:nth-child(odd){border-radius:24px 4px 24px 4px}.blk:nth-child(even){border-radius:4px 24px 4px 24px}
+.blk p{margin-top:6px}
+.tabs{display:flex;gap:8px;margin:20px 0 8px;flex-wrap:wrap}
+.tabs button{border:2px solid var(--ink);background:none;padding:6px 18px;border-radius:99px;font-weight:500}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.ev{display:grid;grid-template-columns:84px 1fr;gap:20px;padding:20px 0;border-top:2px solid var(--line);align-items:center}
+.dt{background:var(--c);color:var(--on);border:2px solid var(--ink);border-radius:16px;text-align:center;padding:8px 0;font-weight:800;line-height:1.1}
+.dt b{display:block;font-size:1.8rem}
+.ev p,.person p{color:var(--mut)}
+.person{text-align:left}
+.av{width:84px;height:84px;border-radius:50%;background:var(--c);color:var(--on);border:2px solid var(--ink);display:grid;place-items:center;font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.steps{margin:24px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:center;padding:14px 0;border-top:2px solid var(--line);font-weight:500}
+.steps li:before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800}
+.two{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;margin-top:24px}
+@media(max-width:780px){.two{grid-template-columns:1fr}}
+label{display:block;font-weight:500;margin:0 0 14px}
+input,textarea{display:block;width:100%;margin-top:6px;font:inherit;color:inherit;background:var(--bg);border:2px solid var(--ink);border-radius:12px;padding:11px 14px}
+#ok{margin-top:14px;font-weight:500;color:var(--g)}
+footer{border-top:2px solid var(--ink);padding:26px 0 40px;color:var(--mut)}
+.strip{display:flex;height:8px;margin-bottom:22px}.strip i{flex:1;background:var(--c)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#home"><span class="dots"><i class="b"></i><i class="r"></i><i class="y"></i><i class="g"></i></span>GDG on Campus PU</a>
+  <nav id="nav" aria-label="Main">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#events">Events</a><a href="#team">Team</a><a href="#join">Join</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="ib" id="th" aria-label="Switch light or dark theme">◐</button>
+  <button class="ib" id="bg" aria-label="Open menu" aria-expanded="false">☰</button>
+</div></header>
 
-A responsive single-page website for the GDG on Campus community at Poornima University.
+<main>
+<section class="page wrap hero" id="home">
+  <div>
+    <p><strong>Google Developer Groups on Campus · Poornima University</strong></p>
+    <h1>Build. Learn.<br>Connect.</h1>
+    <p class="lead">A student-led developer community at Poornima University, Jaipur. Learn new technologies, build projects, and grow alongside fellow developers.</p>
+    <a class="btn" href="#join">Join the community</a>
+    <a class="btn o" href="#events">Explore events</a>
+  </div>
+  <div>
+    <button class="stage" id="stage" aria-label="Change the colors of the shapes">
+      <span class="b" style="--i:1"></span><span class="r" style="--i:2"></span>
+      <span class="y" style="--i:3"></span><span class="g" style="--i:4"></span>
+    </button>
+    <p class="hint">Tap the colorful shapes to change their colors.</p>
+  </div>
+</section>
 
-## Preview locally
+<section class="page wrap" id="about">
+  <h2>More than a club.</h2>
+  <p class="lead">A place to learn by doing, meet people who love technology, and turn ideas into real projects.</p>
+  <div class="bands">
+    <article class="band b"><h3>Learn together</h3><p>Explore web development, cloud, AI, and other technologies through beginner-friendly sessions and study jams.</p></article>
+    <article class="band y"><h3>Build things</h3><p>Work on practical projects, experiment with new tools, and learn from the process of creating.</p></article>
+    <article class="band g"><h3>Grow your network</h3><p>Meet fellow students, share ideas, and collaborate with a community of curious developers.</p></article>
+  </div>
+</section>
 
-Open `index.html` in a web browser.
+<section class="page wrap" id="events">
+  <h2>Events & activities</h2>
+  <p class="lead">Learn something new, practice your skills, and build with others.</p>
+  <div class="grid">
+    <article class="blk b"><h3>Workshops</h3><p>Hands-on sessions to explore developer tools and technologies.</p></article>
+    <article class="blk y"><h3>Study jams</h3><p>Learn at your own pace with peers and work through guided learning material.</p></article>
+    <article class="blk g"><h3>Hackathons</h3><p>Team up, solve problems, and turn an idea into a working prototype.</p></article>
+  </div>
+  <p class="hint">No event dates are listed yet. Add confirmed dates and registration links when they're available.</p>
+</section>
 
-## Publish with GitHub Pages
+<section class="page wrap" id="team">
+  <h2>People make the community.</h2>
+  <p class="lead">Meet the students and mentors helping the community learn and build.</p>
+  <div class="grid">
+    <article class="blk r person"><div class="av">PU</div><h3>Community team</h3><p>Add the current organizers' names, roles, and approved profile links here.</p></article>
+    <article class="blk b person"><div class="av">GDG</div><h3>Get involved</h3><p>Interested in helping organize a session or project? Reach out through your official campus community channel.</p></article>
+  </div>
+</section>
 
-1. Create a repository on GitHub (for example, `gdg-campus-website`).
-2. Upload `index.html`, `README.md`, and `.nojekyll` to the repository's root folder.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main** and folder **/(root)**, then click **Save**.
-6. Wait for GitHub Pages to publish the site. The published address will appear in the Pages settings.
+<section class="page wrap" id="join">
+  <div class="cta y">
+    <h2>Curious about tech?<br>You belong here.</h2>
+    <p>Join a session, bring an idea, or start learning with the community.</p>
+    <p style="margin-top:20px"><a class="btn o" href="#contact">How to connect</a></p>
+  </div>
+</section>
 
-## Before publishing
+<section class="page wrap" id="contact">
+  <h2>Contact & links</h2>
+  <p class="lead">Add your official GDG on Campus community links below so students can find the right place to connect.</p>
+  <div class="grid">
+    <article class="blk b"><h3>Community page</h3><p>Replace this text with your official community URL.</p></article>
+    <article class="blk y"><h3>Social media</h3><p>Add your approved Instagram, LinkedIn, or other social links.</p></article>
+    <article class="blk g"><h3>Email</h3><p>Add an official contact email if your team has one.</p></article>
+  </div>
+</section>
+</main>
 
-The page currently includes placeholder text for official community links, organizer details, and contact information. Replace these with confirmed details before sharing the website publicly. No build tools are required.
+<footer><div class="wrap"><div class="strip"><i class="b"></i><i class="r"></i><i class="y"></i><i class="g"></i></div><p>GDG on Campus · Poornima University</p><p class="hint">Student community website. Confirm all event details and official links before publishing.</p></div></footer>
+
+<script>
+const root = document.documentElement;
+const themeButton = document.getElementById('th');
+themeButton.addEventListener('click', () => {
+  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = next;
+});
+const menuButton = document.getElementById('bg');
+const nav = document.getElementById('nav');
+menuButton.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+});
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}));
+const colors = ['b','r','y','g'];
+document.getElementById('stage').addEventListener('click', () => {
+  document.querySelectorAll('#stage span').forEach((shape, index) => {
+    shape.classList.remove(...colors);
+    shape.classList.add(colors[(colors.indexOf(shape.dataset.color || colors[index]) + 1) % colors.length]);
+    shape.dataset.color = shape.classList[0];
+  });
+});
+</script>
+</body>
+</html>
